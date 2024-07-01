@@ -1,15 +1,46 @@
-using System; 
+using System;
 
-class Program {
-  public static void Main (string[] args) {
-     Console.WriteLine("Enter text here");
-    int charCount = Console.ReadLine().Length;
-    if((charCount > 140)){
-      Console.WriteLine("Rejected");
+class Program
+{
+    static void Main()
+    {
+        
+     
+      static bool IsPerfect(int number)
+      {
+          int sumOfDivisors = 0;
+
+          for (int i = 1; i <= number / 2; i++)
+          {
+              if (number % i == 0)
+              {
+                  sumOfDivisors += i;
+              }
+          }
+
+          return sumOfDivisors == number;
       }
-    else Console.WriteLine("Posted");
-    
-  }
-  
+      
+      
+      
+      
+      Console.WriteLine("Enter a number between 1 and 10,000 to determine :");
+
+        string input = Console.ReadLine();
+
+        if (int.TryParse(input, out int number))
+        {
+            if (IsPerfect(number))
+            {
+                Console.WriteLine("Perfect");
+            }
+            else
+            {
+                Console.WriteLine("Not Perfect");
+            }
+        }
+       
     }
+
    
+}
